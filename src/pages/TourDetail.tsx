@@ -40,9 +40,10 @@ const TourDetail = () => {
                   {c.name}
                 </Link>
               ))}
-              <span className={`rounded-full px-3 py-1 text-xs font-semibold ${tour.available ? "bg-emerald-500 text-white" : "bg-destructive text-destructive-foreground"}`}>
-                {tour.available ? "Available" : "Sold out"}
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500 text-white px-3 py-1 text-xs font-semibold" style={{ animation: "blink-green 1.4s ease-in-out infinite" }}>
+                <span className="h-2 w-2 rounded-full bg-white" /> {t("tour.available", "Available")}
               </span>
+              <style>{`@keyframes blink-green { 0%,100%{opacity:1} 50%{opacity:.55} }`}</style>
             </div>
             <h1 className="font-display text-3xl md:text-5xl max-w-4xl leading-tight">{tour.title}</h1>
             <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
