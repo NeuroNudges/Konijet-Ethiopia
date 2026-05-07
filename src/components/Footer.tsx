@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 import logo from "@/assets/konijet-logo.png";
-import { Instagram, Facebook, Youtube, Mail } from "lucide-react";
+import { Instagram, Facebook, Mail, MessageCircle, MapPinned } from "lucide-react";
+
+const PHONE = (import.meta.env.VITE_WHATSAPP_NUMBER || "+251911000000").replace(/[^\d]/g, "");
+const NEWSLETTER_URL = import.meta.env.VITE_N8N_NEWSLETTER_WEBHOOK_URL as string | undefined;
 
 export const Footer = () => {
   const { t } = useTranslation();
