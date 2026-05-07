@@ -1,13 +1,18 @@
+import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, Clock, Star, MapPin, Check, X as XIcon, Flag } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { ArrowLeft, Clock, Star, MapPin, Check, X as XIcon, Flag, CreditCard, ShieldCheck, HelpCircle } from "lucide-react";
 import { getTour, CATEGORIES } from "@/data/tours";
 import { WeatherWidget } from "@/components/WeatherWidget";
+import { BookingModal } from "@/components/BookingModal";
 import NotFound from "./NotFound";
 
 const TourDetail = () => {
   const { slug = "" } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
+  const [bookOpen, setBookOpen] = useState(false);
   const tour = getTour(slug);
   if (!tour) return <NotFound />;
 
