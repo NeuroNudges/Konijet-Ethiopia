@@ -24,8 +24,14 @@ export const Footer = () => {
             Crafted itineraries through the cradle of humanity. From the highlands of Lalibela to the salt flats of Danakil — we host every step of the way.
           </p>
           <div className="mt-6 flex gap-3">
-            {[Instagram, Facebook, Youtube, Mail].map((Icon, i) => (
-              <a key={i} href="#" className="rounded-full border border-primary-foreground/20 p-2.5 transition-smooth hover:bg-secondary hover:text-secondary-foreground hover:border-secondary">
+            {[
+              { Icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+              { Icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+              { Icon: MessageCircle, href: `https://wa.me/${PHONE}`, label: "WhatsApp" },
+              { Icon: MapPinned, href: "https://www.tripadvisor.com", label: "TripAdvisor" },
+              { Icon: Mail, href: "mailto:" + (import.meta.env.VITE_COMPANY_EMAIL || "info@konjetethiopia.com"), label: "Email" },
+            ].map(({ Icon, href, label }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="rounded-full border border-primary-foreground/20 p-2.5 transition-smooth hover:bg-secondary hover:text-secondary-foreground hover:border-secondary">
                 <Icon className="h-4 w-4" />
               </a>
             ))}
